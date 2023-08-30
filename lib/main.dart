@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'ui/pages/main_page.dart';
 
 void main() {
+  Get.lazyPut<ConverterController>(() => ConverterController());
   runApp(const MyApp());
 }
+
+class ConverterController {
+  var valor = 0.obs;
+int get val => valor.value;
+  sum()=> valor++;
+  sub()=> valor--;
+  reset()=> valor.value=0;
+}
+ConverterController controller = Get.put(ConverterController());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
